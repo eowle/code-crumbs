@@ -19,18 +19,19 @@ module.exports = CodeCrumbs =
 
   add: ->
     editor = atom.workspace.getActivePaneItem()
-    fileTitle = editor.getTitle()
-    filePath = editor.getPath()
-    screenRow = editor.getCursor().getScreenRow()
-    markedText = editor.lineTextForScreenRow(screenRow)
-    newElement = document.createElement('div')
-    newElement.classList.add('crumb')
-    newElement.innerHTML = fileTitle + ':' + screenRow + ': ' + markedText
-    newElement.onclick = ->
-      atom.workspace.open(filePath, initialLine: screenRow)
-    newElement.oncontextmenu = ->
-      newElement.remove()
-    @codeCrumbsView.getElement().appendChild(newElement)
+    if typeof editor.getTitle is 'function' and typeof editor.getPath is 'function'
+      fileTitle = editor.getTitle()
+      filePath = editor.getPath()
+      screenRow = editor.getCursor().getScreenRow()
+      markedText = editor.lineTextForScreenRow(screenRow)
+      newElement = document.createElement('div')
+      newElement.classList.add('crumb')
+      newElement.innerHTML = fileTitle + ':' + screenRow + ': ' + markedText
+      newElement.onclick = ->
+        atom.workspace.open(filePath, initialLine: screenRow)
+      newElement.oncontextmenu = ->
+        newElement.remove()
+      @codeCrumbsView.getElement().appendChild(newElement)
 
   deactivate: ->
     @modalPanel.destroy()
