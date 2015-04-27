@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "description": "Mark places in the your code you want to jump to",
   "activationCommands": {
-    "atom-workspace": ["code-crumbs:toggle", "code-crumbs:add"]
+    "atom-workspace": ["code-crumbs:toggle", "code-crumbs:add", "code-crumbs:remove"]
   },
   "repository": "https://github.com/atom/code-crumbs",
   "license": "MIT",
@@ -12,5 +12,6 @@
     "atom": ">=0.174.0 <2.0.0"
   },
   "dependencies": {
+    "atom-space-pen-views": "*"
   }
 }

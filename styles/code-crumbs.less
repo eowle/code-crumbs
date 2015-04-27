@@ -13,14 +13,19 @@
   }
 
   .crumb {
-    color: #fff;
+    color: @text-color;
     cursor: pointer;
-    margin: 4px 0;
+    margin: 6px 0;
     border-bottom: 1px dashed #CCC;
   }
 
   .crumb:hover {
-    color: #46D;
+    color: @text-color-info;
     text-decoration: underline;
   }
+}
+
+.crumb-annotation {
+  height: 20px;
+  width: 100%;
 }

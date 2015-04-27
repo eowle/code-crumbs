@@ -5,6 +5,10 @@
       'label': 'Toggle code-crumbs'
       'command': 'code-crumbs:toggle'
     }
+  ],
+  '.code-crumbs .crumb': [
+    {'label': 'Remove','command': 'code-crumbs:remove'},
+    {'label': 'Annotate', 'command': 'code-crumbs:annotate'}
   ]
 'menu': [
   {
