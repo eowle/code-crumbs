@@ -18,7 +18,7 @@ module.exports = CodeCrumbs =
       atom.deserializers.deserialize(state)
 
     @modalPanel = atom.workspace.addRightPanel(item: @codeCrumbsView.getElement(), visible: false)
-
+    @codeCrumbsView.handleEvents()
     # Events subscribed to in atom's system can be easily cleaned up with a CompositeDisposable
     @subscriptions = new CompositeDisposable
 
@@ -53,7 +53,7 @@ module.exports = CodeCrumbs =
     newElement.oncontextmenu = ->
       CodeCrumbs.deselect()
       newElement.classList.add('selected')
-    @codeCrumbsView.getElement().appendChild(newElement)
+    $(@codeCrumbsView.getElement()).find('.crumb-list').append(newElement)
 
   add: ->
     editor = atom.workspace.getActivePaneItem()
